@@ -1,0 +1,14 @@
+<%- include("./partials/header") -%>
+
+<h1>Home</h1>
+<p><%=ejsObject2Receive.homeStartingContent%></p>
+<%# it like for loop array have go forEach method element is the array's element
+and the anonymous function is like the internels in for loop%>
+<% ejsObject2Receive.posts.forEach(function(element){%>
+  <h1><%=element.title%></h1>
+  <p><%=element.body.split(" ").splice(0,10).join(" ")+" ..."%></p>
+  <a href=<%="/"+_.kebabCase(element.title)%>>Read more</a>
+<%}); %>
+
+<%- include("./partials/footer") -%>
+<%# The partials are using the relative path from the file that using that partial%>
